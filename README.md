@@ -1,6 +1,6 @@
 # Desmos Audio Lab
 
-Current extension version: **1.0.1**
+Current extension version: **1.1.0**
 
 An independent Chrome extension that plays Spotify inside the ordinary Desmos graphing calculator, analyzes explicitly shared tab audio, and exports mathematical snapshots to Desmos expressions. Local files remain available as an optional fallback.
 
@@ -22,13 +22,17 @@ No audio is uploaded. Processing happens locally in the browser.
 
 ## Install from source
 
-1. Run `npm run check` and `npm run pack`.
+1. Clone this repository once.
 2. Open Chrome's extensions management page.
 3. Enable Developer mode.
-4. Choose **Load unpacked** and select `dist/desmos-audio-lab`.
+4. Choose **Load unpacked** and select the repository root—the folder containing `manifest.json`.
 5. Open the Desmos graphing calculator. Audio Lab appears on the right.
 
 The extension intentionally requests no broad host permissions and runs only on the Desmos calculator and 3D calculator URLs.
+
+## Updating
+
+Double-click `update-extension.bat`, then press **Reload** for Audio Lab on Chrome's extensions page. Chrome's Reload button reloads files already on your computer; it cannot fetch GitHub changes by itself. If a coding agent is editing this exact local repository folder, skip the update script and press Reload directly.
 
 ## Design and performance
 

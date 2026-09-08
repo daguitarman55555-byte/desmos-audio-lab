@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Desmos Audio Lab",
   "description": "Play local audio and inspect its waveform and spectrum inside the Desmos graphing calculator.",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "content_scripts": [
     {
       "matches": ["https://www.desmos.com/calculator*", "https://www.desmos.com/3d*"],

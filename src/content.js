@@ -79,9 +79,10 @@
   const launcher = document.createElement("button");
   launcher.id = "dal-launcher";
   launcher.type = "button";
-  launcher.title = "Open Audio Lab";
+  launcher.title = "Audio Lab";
   launcher.setAttribute("aria-label", "Open Audio Lab");
-  launcher.textContent = "♫";
+  launcher.setAttribute("aria-controls", "dal-panel");
+  launcher.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h3l2.2-6 3.6 12 2.7-9 2 6H21"/></svg>`;
   document.body.append(panel, launcher);
 
   const $ = (selector) => panel.querySelector(selector);
@@ -97,7 +98,9 @@
   function setOpen(open) {
     state.open = open;
     panel.classList.toggle("dal-closed", !open);
-    launcher.classList.toggle("dal-visible", !open);
+    launcher.classList.toggle("dal-active", open);
+    launcher.setAttribute("aria-expanded", String(open));
+    launcher.setAttribute("aria-label", open ? "Close Audio Lab" : "Open Audio Lab");
     localStorage.setItem("audioLab.open", String(open));
   }
 
@@ -321,7 +324,7 @@
     const view = event.target.closest("[data-view]")?.dataset.view;
     if (view) applyView(view);
   });
-  launcher.addEventListener("click", () => setOpen(true));
+  launcher.addEventListener("click", () => setOpen(!state.open));
   fileInput.addEventListener("change", () => loadFile(fileInput.files?.[0]));
   dropzone.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") fileInput.click(); });
   ["dragenter", "dragover"].forEach((type) => dropzone.addEventListener(type, (event) => { event.preventDefault(); dropzone.classList.add("dal-dragging"); }));
