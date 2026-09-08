@@ -1,0 +1,11 @@
+{
+  "name": "desmos-audio-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check src/content.js && node --check src/desmos-bridge.js && node --test",
+    "visual-qa": "node scripts/visual-qa.mjs",
+    "pack": "node scripts/pack.mjs"
+  }
+}
